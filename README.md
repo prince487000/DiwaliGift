@@ -1,1 +1,1 @@
-A beautiful digital Diwali surprise created using HTML, CSS, and JavaScript. It features glowing diyas, colorful animations, sparkling fireworks, and special festive wishes. This interactive gift spreads happiness, positivity, and love while celebrating the Festival of Lights. 🪔✨
+A beautiful digital Diwali surprise created using HTML, CSS, and JavaScript. It features glowing diyas, colorful animations, sparkling fireworks, and special festive wishes. This interactive gift spreads happiness, positivity, and love while celebrating the Festival of Lights. 🪔✨ #DiwaliSpecialGift
