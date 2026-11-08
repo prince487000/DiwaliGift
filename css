@@ -1,0 +1,346 @@
+ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background: radial-gradient(
+        circle,
+        #571900,
+        #210900 75%
+    );
+
+    font-family: Georgia, serif;
+    color: #ffe9a6;
+}
+
+.scene {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 85px 15px 35px;
+}
+
+/* MAIN HEADING */
+
+h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    color: #ffd45a;
+
+    text-shadow:
+        0 0 15px #ffae00,
+        0 0 35px #ff6600;
+
+    animation: glow 2s infinite alternate;
+}
+
+h2 {
+    margin-top: 15px;
+    color: #ffdf83;
+}
+
+/* YEAR */
+
+.year {
+    font-size: 35px;
+    color: #ffcf55;
+    margin: 15px;
+    text-shadow: 0 0 20px #ff9800;
+}
+
+/* INFORMATION */
+
+.info {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 15px;
+    color: #ffe8b0;
+}
+
+/* DIYA CONTAINER */
+
+.diya-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    margin: 45px 0;
+    flex-wrap: wrap;
+}
+
+.diya-wrap {
+    position: relative;
+    width: 90px;
+    height: 100px;
+}
+
+/* DIYA GLOW */
+
+.diya-glow {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 180, 0, 0.5),
+        transparent 70%
+    );
+
+    animation: glow 2s infinite alternate;
+}
+
+/* FLAME */
+
+.flame {
+    position: absolute;
+
+    width: 17px;
+    height: 32px;
+
+    background: linear-gradient(
+        to top,
+        #ff6600,
+        #ffea00,
+        #ffffff
+    );
+
+    border-radius: 50% 50% 45% 45%;
+
+    top: 5px;
+    left: 36px;
+
+    transform-origin: bottom;
+
+    animation: flicker 0.2s infinite alternate;
+
+    box-shadow: 0 0 25px orange;
+}
+
+/* WICK */
+
+.wick {
+    position: absolute;
+    width: 4px;
+    height: 12px;
+
+    background: #332000;
+
+    top: 30px;
+    left: 43px;
+}
+
+/* OIL */
+
+.oil {
+    position: absolute;
+
+    width: 50px;
+    height: 10px;
+
+    background: #ffb300;
+
+    border-radius: 50%;
+
+    top: 38px;
+    left: 20px;
+}
+
+/* DIYA */
+
+.diya {
+    position: absolute;
+
+    width: 75px;
+    height: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffb000,
+        #9e3200
+    );
+
+    border-radius: 10px 10px 45px 45px;
+
+    top: 40px;
+    left: 7px;
+
+    box-shadow: 0 0 25px orange;
+}
+
+.bowl {
+    position: absolute;
+
+    width: 85px;
+    height: 15px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffdb70,
+        #b34a00
+    );
+
+    border-radius: 50%;
+
+    top: 65px;
+    left: 2px;
+}
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin: 20px;
+}
+
+.btn {
+    padding: 12px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #ffcc33,
+        #ff7700
+    );
+
+    border: 2px solid #ffdf83;
+    border-radius: 25px;
+
+    color: #501500;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 15px orange,
+        0 0 30px #ffae00;
+}
+
+/* WISH BOX */
+
+.wish-box {
+    display: none;
+
+    max-width: 500px;
+    width: 90%;
+
+    margin: 25px auto;
+    padding: 25px;
+
+    border: 2px solid #ffbb33;
+    border-radius: 15px;
+
+    background: rgba(70, 15, 0, 0.85);
+
+    box-shadow:
+        0 0 25px orange;
+}
+
+.wish-box.show {
+    display: block;
+    animation: appear 0.8s ease;
+}
+
+.wish-box p {
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+/* CANVAS */
+
+canvas {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* ANIMATIONS */
+
+@keyframes flicker {
+    from {
+        transform: scale(1) rotate(-5deg);
+    }
+
+    to {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+@keyframes glow {
+    from {
+        opacity: 0.6;
+        filter: brightness(1);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1.5);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .scene {
+        padding-top: 65px;
+    }
+
+    .diya-container {
+        gap: 15px;
+    }
+
+    .diya-wrap {
+        transform: scale(0.85);
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 220px;
+    }
+
+}
