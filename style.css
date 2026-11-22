@@ -342,23 +342,51 @@ canvas {
     .btn {
         width: 220px;
 
-     .music-player {
-    margin: 25px;
-    padding: 20px;
-    text-align: center;
-    background: rgba(255, 165, 0, 0.2);
-    border: 2px solid gold;
-    border-radius: 15px;
-}
-
-.music-player h3 {
-    color: gold;
-    margin-bottom: 15px;
-}
-
-.music-player audio {
-    max-width: 100%;
-}
+     
     }
 
 }
+// BACKGROUND MUSIC SYSTEM
+
+const bgMusic = document.getElementById("bgMusic");
+
+// Set Volume
+bgMusic.volume = 0.5;
+
+// Automatic Music Playback
+function startMusic() {
+
+    if (bgMusic.paused) {
+
+        bgMusic.play()
+            .then(() => {
+                console.log("Music Started Successfully!");
+            })
+            .catch((error) => {
+                console.log("Autoplay blocked by browser.");
+            });
+
+    }
+
+}
+
+// Try autoplay when website loads
+window.addEventListener("load", () => {
+
+    startMusic();
+
+});
+
+// Start music after first click
+document.addEventListener("click", function () {
+
+    startMusic();
+
+}, { once: true });
+
+// Start music after first touch
+document.addEventListener("touchstart", function () {
+
+    startMusic();
+
+}, { once: true });
