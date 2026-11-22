@@ -232,3 +232,27 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
 
 });
+// Background Music
+const bgMusic = document.getElementById("bgMusic");
+
+if (bgMusic) {
+    bgMusic.volume = 0.5;
+
+    function startMusic() {
+        if (bgMusic.paused) {
+            bgMusic.play().catch(error => {
+                console.log("Music could not start:", error);
+            });
+        }
+    }
+
+    // Try autoplay when page loads
+    if (document.readyState === "complete") {
+        startMusic();
+    } else {
+        window.addEventListener("load", startMusic, { once: true });
+    }
+
+    // Start music after first tap or click
+    document.addEventListener("pointerdown", startMusic, { once: true });
+}
